@@ -10,6 +10,9 @@
     <link rel="shortcut icon" type="image/png" href=" {{ asset("img/logo-icon.jpeg")}}" sizes="192x192">
     <link href= rel="icon">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+
     <script src={{asset("dashboard/assets/js/plugin/webfont/webfont.min.js")}}></script>
     <script>
         WebFont.load({

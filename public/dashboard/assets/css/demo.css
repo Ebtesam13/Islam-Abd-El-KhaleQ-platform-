@@ -456,3 +456,6 @@ body[data-background-color="dark"] .demo-icon .icon-class {
     padding: 0;
     gap: 2px;
 }
+.btn{
+  margin-bottom: 5px;
+}

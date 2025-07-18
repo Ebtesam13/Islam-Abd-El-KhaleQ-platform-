@@ -47,24 +47,24 @@
                                         <!-- action -->
                                         <div class="d-flex justify-content-around py-3 px-2">
                                             <a href="{{ route('dashboard.courses.show', ['course' => $course->id]) }}" class="btn btn-outline-main rounded-pill py-9">
-                                                <i class="fa fa-eye"></i> 
+                                                <!-- <i class="fa fa-eye"></i>  -->
                                                 {{ __('labels.show') }}
                                             </a>
                                             <!-- {{ route('dashboard.courses.edit', ['course' => $course->id]) }} -->
                                             <a href="" class="btn  btn-outline-warning rounded-pill py-9">
-                                                <i class="fa fa-edit"></i> 
+                                                <!-- <i class="fa fa-edit"></i>  -->
                                                 {{ __('labels.edit') }}
                                             </a>
                                             <!-- {{ route('dashboard.courses.destroy', ['course' => $course->id]) }} -->
                                             <!-- return confirm('{{ __('labels.confirm_delete') }}'); -->
-                                            <form action="" method="POST" onsubmit="">
+                                            <!-- <form action="" method="POST" onsubmit="">
                                                 @csrf
-                                                @method('DELETE')
+                                                @method('DELETE') -->
                                                 <button type="submit" class="btn  btn-outline-danger rounded-pill py-9">
-                                                    <i class="fa fa-trash"></i> 
+                                                    <!-- <i class="fa fa-trash"></i>  -->
                                                     {{ __('labels.delete') }}
                                                 </button>
-                                            </form>
+                                            <!-- </form> -->
                                         </div>
                                     </div>
                                 </div>
