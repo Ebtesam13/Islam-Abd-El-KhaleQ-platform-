@@ -4,10 +4,13 @@
     <div class="container">
         <div class="page-inner">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-                <div>
-                    <h3 class="fw-bold mb-3">Dashboard</h3>
-                    <h6 class="op-7 mb-2">{{__('labels.welcome_to') .' '. __('labels.dashboard')}} </h6>
-                </div>
+                       <div class="breadcrumb mb-24 custom-breadcrumb">
+    <ul class="flex-align gap-4">
+        <li><a href="{{route('dashboard.')}}" class="text-gray-200 fw-normal text-15 hover-text-main-600">Home</a></li>
+        <li><span class="text-gray-500 fw-normal d-flex"><i class="fas fa-chevron-right"></i></span></li>
+        <li><span class="text-main-600 fw-normal text-15">Homework</span></li>
+    </ul>
+</div>
             </div>
             <!-- Courses Start -->
             <div class="container-xxl py-5">
@@ -60,19 +63,15 @@
                             </div>
                         </div><br><br>
                     @endrole
-                    <div class="cred-header">{{__('labels.homework_list')}}</div>
+                 {{--   <div class="cred-header">{{__('labels.homework_list')}}</div>--}}
                     <div class="card-body homework-list">
-                        @role('student')
+                    {{--    @role('student')
                             @if(isset($lessons))
                             @foreach($lessons as $lesson)
                                 @if(!empty($lesson->homework))
                                     @foreach($lesson->homework as $homework)
                                         <div class="card card-post card-round">
                                         @if($homework->video)
-{{--                                            <video width="100%" height="400" id="homework-{{$homework->id}}" controls>--}}
-{{--                                                <source src="{{ asset('storage/' . $homework->video) }}" type="video/mp4">--}}
-{{--                                                Your browser does not support the video tag.--}}
-{{--                                            </video>--}}
                                             <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="{{$homework->video}}" frameborder="0"
                                                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                                                  style="position:absolute;top:0;left:0;width:100%;height:100%;" title="quantum numbers lesson 3 senior 2"></iframe>
@@ -100,7 +99,63 @@
                                 @endif
                             @endforeach
                         @endif
-                        @endrole
+                        @endrole--}}
+                        @role('student')
+    @if(isset($lessons))
+        <div class="container-xxl ">
+            <div class="py-4" style="background-color: #fff; border-radius: 10px;">
+                <div class="container p-4 rounded-4">
+                    <h4 class="fw-bold mb-4">Second Secondary: Homework</h4>
+
+                    <div class="row g-4 justify-content-start">
+                        @foreach($lessons as $lesson)
+                            @if(!empty($lesson->homework))
+                                @foreach($lesson->homework as $homework)
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card h-100 shadow-sm border border-gray-800 rounded-4 d-flex flex-column">
+                                            
+                                            @if($homework->video)
+                                                <div class="bg-white rounded-4 border shadow-sm p-3">
+                                                    <div style="padding:56.25% 0 0 0;position:relative;">
+                                                        <iframe src="{{ $homework->video }}" frameborder="0"
+                                                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                                                                style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                                                                title="Homework Video"></iframe>
+                                                    </div>
+                                                    <script src="https://player.vimeo.com/api/player.js"></script>
+                                                </div>
+                                            @endif
+
+                                            <input type="hidden" class="homework-route" value="{{ route('dashboard.homework.markAsViewed', ['homeworkId' => $homework->id]) }}">
+
+                                            <div class="px-3 pt-2 flex-grow-1 d-flex flex-column">
+                                                <h5 class="fw-semibold">{{ $homework->name }}</h5>
+                                                <p class="text-muted small mb-2">Uploaded: {{ $homework->created_at }}</p>
+
+                                                <div class="text-muted small mb-2">
+                                                    <i class="fas fa-info-circle me-1 text-info"></i> Description
+                                                </div>
+                                                <p class="text-muted small">{{ \Illuminate\Support\Str::limit($homework->description, 90) }}</p>
+
+                                                <div class="mt-auto my-2">
+                                                    <a href="{{ route('dashboard.homework.show', ['homework' => $homework->id]) }}"
+                                                       class="btn btn-outline-info btn-lg rounded-pill py-1">
+                                                        {{ __('labels.show') }}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+@endrole
+
                     </div><br><br>
 
                     <div class="course-item bg-light">

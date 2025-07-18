@@ -95,14 +95,14 @@
 <div class="container-xxl py-2">
     
  <div class="py-4" style="background-color: #fff; border-radius: 10px;">
-<div class="container  p-4 rounded-4 shadow-sm">
-        <h4 class="fw-bold mb-4">Second Secondary Lectures</h4>
+<div class="container  p-4 rounded-4 ">
+        <h4 class="fw-bold mb-4">Second Secondary: Lectures</h4>
 
         <div class="row g-4 justify-content-start">
             @foreach($lectures as $index=>$lecture)
               <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
-    <div class="card h-100 shadow-sm border-0 rounded-4 d-flex flex-column">
-        <div class="bg-white rounded-4 border border-gray-400 shadow-sm p-3">
+    <div class="card h-100 shadow-sm border border-gray-800 rounded-4 d-flex flex-column">
+        <div class="bg-white rounded-4 border shadow-sm p-3">
             <img class="img-fluid w-100" src="{{ asset('img/course-1.jpg') }}" alt="" style="height: 200px; object-fit: cover;">
         </div>
 
@@ -115,9 +115,9 @@
                 <div><i class="fas fa-clock me-1 text-info"></i> {{ $lecture->duration ?? '2 Hours' }}</div>
             </div>
 
-            <div class="mt-auto"> 
+            <div class="mt-auto my-2"> 
                 <a href="{{ route('dashboard.lessons.show', ['lesson' => $lecture->id]) }}"
-                   class="btn btn-outline-info w-100 rounded-pill py-1">
+                   class="btn btn-outline-info btn-lg rounded-pill py-1">
                     {{ __('labels.show') }}
                 </a>
             </div>
