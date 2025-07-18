@@ -423,3 +423,36 @@ body[data-background-color="dark"] .demo-icon .icon-class {
     background-color:#00b6c8;
     border-color:#00b6c8;
 }
+
+.custom-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 2px;  
+}
+
+.custom-breadcrumb a  {
+    color: #6b7280;
+    text-decoration: none ;
+    transition: color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+}
+
+.custom-breadcrumb a:hover {
+    color: #06b6d4; 
+}
+
+.custom-breadcrumb .text-main-600 {
+    color: #06b6d4; 
+}
+
+.custom-breadcrumb ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2px;
+}

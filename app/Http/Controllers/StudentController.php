@@ -24,7 +24,7 @@ class StudentController extends Controller
     return '
         <div class="d-flex gap-2">
             
-            <a href="' . route('students.show', ['student', $student->id]) . '" class="btn btn-outline-primary rounded-pill px-3 py-1">
+            <a href="' . route('students.show', ['student', $student->id]) . '" class="btn btn-outline-main rounded-pill px-3 py-1">
                 Show
             </a>
             <a href="' . route('students.edit', ['student', $student->id]) . '" class="btn btn-outline-warning rounded-pill px-3 py-1">
