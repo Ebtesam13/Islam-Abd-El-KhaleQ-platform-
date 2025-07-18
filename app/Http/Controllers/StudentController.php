@@ -20,17 +20,28 @@ class StudentController extends Controller
             ->select(['id', 'name', 'email'])
             ->get();
         return DataTables::of($students)
-            ->addColumn('actions', function ($student) {
-                return '
-                <a href="' . route('students.edit', ['student',$student->id]) . '" class="btn btn-sm btn-primary">Edit</a>
-                <a href="' . route('students.show', ['student',$student->id]) . '" class="btn btn-sm btn-success">Show</a>
-                <form action="' . route('students.destroy',['student',$student->id]) . '" method="POST" style="display:inline;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . '
-                    <button class="btn btn-sm btn-danger delete-button" data-id="' . $student->id . '">Delete</button>
-                </form>
-            ';
-            })
+  ->addColumn('actions', function ($student) {
+    return '
+        <div class="d-flex gap-2">
+            <a href="' . route('students.edit', ['student', $student->id]) . '" class="btn btn-outline-warning rounded-pill px-3 py-1">
+                Edit
+            </a>
+            <a href="' . route('students.show', ['student', $student->id]) . '" class="btn btn-outline-primary rounded-pill px-3 py-1">
+                Show
+            </a>
+            <form action="' . route('students.destroy', ['student', $student->id]) . '" method="POST" style="display:inline;">
+                ' . csrf_field() . '
+                ' . method_field('DELETE') . '
+                <button type="submit" class="btn btn-outline-danger rounded-pill px-3 py-1">
+                    Delete
+                </button>
+            </form>
+        </div>
+    ';
+})
+
+
+
             ->rawColumns(['actions']) // Allow HTML for actions column
             ->make(true);
     }
