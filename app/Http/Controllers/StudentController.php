@@ -23,11 +23,12 @@ class StudentController extends Controller
   ->addColumn('actions', function ($student) {
     return '
         <div class="d-flex gap-2">
-            <a href="' . route('students.edit', ['student', $student->id]) . '" class="btn btn-outline-warning rounded-pill px-3 py-1">
-                Edit
-            </a>
+            
             <a href="' . route('students.show', ['student', $student->id]) . '" class="btn btn-outline-primary rounded-pill px-3 py-1">
                 Show
+            </a>
+            <a href="' . route('students.edit', ['student', $student->id]) . '" class="btn btn-outline-warning rounded-pill px-3 py-1">
+                Edit
             </a>
             <form action="' . route('students.destroy', ['student', $student->id]) . '" method="POST" style="display:inline;">
                 ' . csrf_field() . '
